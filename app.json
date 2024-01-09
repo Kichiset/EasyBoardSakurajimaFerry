@@ -26,7 +26,6 @@
       },
       "package": "com.kichiset.EasyBoardSakurajimaFerry",
       "googleServicesFile": "./google-services.json"
-
     },
     "web": {
       "favicon": "./assets/favicon.png"
