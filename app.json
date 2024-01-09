@@ -15,7 +15,8 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.kichiset.EasyBoardSakurajimaFerry"
+      "bundleIdentifier": "com.kichiset.EasyBoardSakurajimaFerry",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "versionCode": 8,
@@ -24,7 +25,9 @@
         "foregroundImage": "./assets/f_bl_d.png",
         "backgroundColor": "#D4ECEE"
       },
-      "package": "com.kichiset.EasyBoardSakurajimaFerry"
+      "package": "com.kichiset.EasyBoardSakurajimaFerry",
+      "googleServicesFile": "./google-services.json"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,5 +40,10 @@
     "plugins": [
       "react-native-admob-native-ads"
     ]
+  },
+  "react-native-google-mobile-ads": {
+      "android_app_id": "ca-app-pub-3179323992080572~4136558695",
+      "ios_app_id": "ca-app-pub-3179323992080572~2823477021",
+      "user_tracking_usage_description": "This identifier will be used to deliver personalized ads to you."
   }
 }
