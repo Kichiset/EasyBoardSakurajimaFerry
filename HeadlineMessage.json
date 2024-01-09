@@ -1,7 +1,8 @@
-{ "1":"[CAUTION] The service operate on a weekday schedule this weekend.",
-  "2": "Tap the departure for more information." ,
-  "3": "Why not have lunch at MinatoCafe on the 3rd floor of Sakurajima Terminal.",
-  "4":"▼Read this article while waiting.▼",
-  "5": "The restaurant at Reststop Sakurajima is closed on Mondays.", 
-  "6":"▼Read this article while waiting.▼",
+{
+	"1": "[CAUTION] The service operate on a weekday schedule this weekend.",
+	"2": "Tap the departure for more information.",
+	"3": "Why not have lunch at MinatoCafe on the 3rd floor of Sakurajima Terminal.",
+	"4": "▼Read this article while waiting.▼",
+	"5": "The restaurant at Reststop Sakurajima is closed on Mondays.",
+	"6": "▼Read this article while waiting.▼"
 }
