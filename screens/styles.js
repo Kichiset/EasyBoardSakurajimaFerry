@@ -5,13 +5,18 @@ export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
  },
-  container: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#1D1D1D'
-    ,
-  },
+ container: {
+  flexGrow: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#1D1D1D',
+},
+container2: {
+  flexGrow: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#DFAF89',
+},
   title: {
     fontSize: 24,
     fontWeight: 'bold',

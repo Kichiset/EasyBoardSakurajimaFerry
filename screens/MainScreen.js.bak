@@ -334,7 +334,8 @@ const [isBackground, setAppState] = useState(false);
     } catch (error) {
       Alert.alert(error.message);
     }
-  }
+  };
+
 
 <StatusBar style="auto" />
 

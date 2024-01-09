@@ -98,7 +98,7 @@ return(timer)
 }
 
 //文字列の表示系
-let [message, setMessage] = useState("Select and Set Alarm.")
+let [message, setMessage] = useState("Select and Set Alart.。")
 const getMessage = () => {
   if(counter == 0){
     message = "No message."
@@ -178,39 +178,38 @@ console.log(loaded,closed,err)
 {/*ここからリターン文（ほとんど表示系）*/}
   return (
   <SafeAreaView style={styles.safeArea}>
-    <ScrollView>
-      <View style={styles.container}>
-      <Text style={styles.DepartPortTitle}>To "{Port}"</Text>
+    <ScrollView contentContainerStyle={styles.container2}>
       <Text style={styles.DepartPortTitle}>"{currentTime}"</Text>
 
-      {/* ここから、タイマー制御 */}
-      <Text style={[styles.buttonText, {color: '#DFAF89'}]}>▼</Text>
-      <Text style={[styles.buttonText, {color: '#DFAF89'}]}>Select and Set Alarm.</Text>
-      </View>
 
+        
+      {/* ここから、タイマー制御 */}
+      <Text style={[styles.buttonText, {color: '#EBEBEB'}]}>▼</Text>
+
+      <Text style={[styles.buttonText, {color: '#EBEBEB'}]}>Select and Set Alart.</Text>
+      
       <View>
         {/*Picker with multiple chose to choose*/}
         {/*selectedValue to set the preselected value if any*/}
         {/*onValueChange will help to handle the changes*/}
         <Picker
-          style={[styles.wideButton, styles.picker,{backgroundColor: '#1D1D1D'}]}
+          style={[styles.wideButton, styles.picker]}
           selectedValue={choosenLabel}
           onValueChange={(itemValue, itemIndex) => {
             setChoosenLabel(itemValue);
             setChoosenIndex(itemIndex);
           }}>
-          <Picker.Item label="No message." value="0" color="#DFAF89"/>
-          <Picker.Item label="10 min. before" value="10" color="#DFAF89"/>
-          <Picker.Item label="15 min. before" value="15" color="#DFAF89"/>
-          <Picker.Item label="20 min. before" value="20" color="#DFAF89"/>
-          <Picker.Item label="30 min. before" value="30" color="#DFAF89"/>
-          <Picker.Item label="45 min. before" value="45" color="#DFAF89"/>
-          <Picker.Item label="60 min. before" value="60" color="#DFAF89"/>
+          <Picker.Item label="No message." value="0" color="FFFFFF"/>
+          <Picker.Item label="10 min." value="10" color="000000"/>
+          <Picker.Item label="15 min." value="15" color="red"/>
+          <Picker.Item label="20 min." value="20" color="white"/>
+          <Picker.Item label="30 min." value="30" color="white"/>
+          <Picker.Item label="45 min." value="45" color="white"/>
+          <Picker.Item label="60 min." value="60" color="white"/>
         </Picker>
-      </View>
+        </View>
 
 
-      <View style={styles.container}>
       <Text style={[styles.buttonText, {color: '#EBEBEB'}]}>▼</Text>
 
         {/* セットボタン */}
@@ -232,13 +231,24 @@ console.log(loaded,closed,err)
           }
         }>
           <Text style={[styles.buttonText]}>Set</Text>
-          <Text>{"Short CM will be shown."}</Text>
-      </TouchableOpacity>
-      
-      <Text style={[styles.buttonText, {color: '#DFAF89'}]}>{'\n'}{message}</Text>
+        </TouchableOpacity>
+
+
+
+      <Text style={{color: '#EBEBEB'}}>{"広告が表示されます"}</Text>
+      <Text style={styles.buttonText}>{'\n'}▼</Text>
+
+
+
+
+      <View>
+        <Text style={styles.portTitle, {color: '#EBEBEB'}}>{message}</Text>
+      </View>
+
+
 
       <Text style={styles.buttonText}>▼</Text>
-      <Text style={[styles.portTitle, styles.bottomColumn, {color: '#DFAF89'}]}>{Port} at {NextDept}</Text>
+      <Text style={[styles.portTitle, styles.bottomColumn, {color: '#EBEBEB'}]}>{Port} at {NextDept}</Text>
 
 
 
@@ -251,7 +261,7 @@ console.log(loaded,closed,err)
 
       
       
-
+      <View>
       {/* 全部リセットするボタン */}
       <TouchableOpacity
         style={[styles.button, styles.mainButton]}
@@ -270,6 +280,7 @@ console.log(loaded,closed,err)
       
       
 
+      </View>
 
       {/* 鹿児島港発画面に遷移するボタン */}
       <TouchableOpacity
@@ -292,7 +303,6 @@ console.log(loaded,closed,err)
         <Text style={styles.buttonText}>Main Page</Text>
       </TouchableOpacity>
 
-      </View>
     </ScrollView>
   </SafeAreaView>
   );
