@@ -15,8 +15,7 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.kichiset.EasyBoardSakurajimaFerry",
-      "googleServicesFile": "./GoogleService-Info.plist"
+      "bundleIdentifier": "com.kichiset.EasyBoardSakurajimaFerry"
     },
     "android": {
       "versionCode": 8,
