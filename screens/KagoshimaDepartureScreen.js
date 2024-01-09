@@ -1,6 +1,18 @@
 import React, { useEffect, useState, Component } from 'react';
 import {
-  View, Text, TouchableOpacity, Image, StyleSheet, SafeAreaView, ScrollView, Linking, Animated, StatusBar, Button, 
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+  Linking,
+  Platform,
+  Animated,
+  Share
 } from 'react-native';
 import { styles } from './styles'; // 新しく作成したstyles.jsファイルをインポート
 
@@ -24,6 +36,9 @@ const bannerImages = [
   require('../assets/GENTOO_PENGUIN_SAKURAJIMA_WORKSHOP.png'),
   require('../assets/SAKURAJIMA_TSUBAKI.png'),
 ];
+
+// Admobバナー
+import { AdmobFullBanner } from "../Admob";
 
 //一行広告のメッセージ（外部リンクをするのは品がないのでやめましょう）
 //最大で12文字/sec
@@ -88,10 +103,12 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
     const textTimer = setInterval(switchText, 5000); // 5秒ごとに切り替え
     return () => clearInterval(textTimer); // クリーンアップ
   }, []);
-console.log(currentTime)
-  return (
   
+  <StatusBar style="auto" />
+  
+  return (
   <SafeAreaView style={styles.safeArea}>
+    <AdmobFullBanner />
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.currentTime}>Current: {currentTime}</Text>
       
@@ -199,6 +216,12 @@ console.log(currentTime)
        */}
       
       
+      <View style={styles.headLineNews}>
+        <Text>▲ Tap the Dept. time, you can set alart. ▲</Text>
+      
+      </View>
+
+
       {/* 鹿児島港発からメイン画面に遷移するボタン */}
       <TouchableOpacity
         style={[styles.button, styles.mainButton]}
@@ -210,11 +233,6 @@ console.log(currentTime)
       </TouchableOpacity>
 
 
-
-      <View style={styles.headLineNews}>
-        <Text>{message[currentTextIndex]}</Text>
-      
-      </View>
         <TouchableOpacity onPress={() => openLink(main_url)} style={styles.linkButton}>
           <Image
             source={require('..//assets/桜島の不思議.png')} // 画像ファイルのパスを指定
