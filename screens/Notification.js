@@ -44,13 +44,8 @@ Notifications.setNotificationHandler({
 
 {/*現在時刻の計算（前画面から受けた文字列をUNIX時間に変換したり、日本標準時間に変換したり）*/}
 let [counter, setCounter] = useState(0)
-let isoDapt = moment().format('YYYY-MM-DD')+ "T" + NextDept + ":00.000Z"; //出航時間を日本時間に変換
-
-
-let setTempDept = new Date(isoDapt).toISOString();
-
-if (moment(setTempDept) < moment())
-     {setTempDept = moment(setTempDept).add(1, 'd')}
+let [dispDept, hoge] = useState(0)
+let setTempDept = moment().format('YYYY-MM-DD')+ "T" + NextDept + ":00.000Z";
 let dispTempDept = moment(setTempDept).add(-9, 'h');
 setTempDept = moment(setTempDept).add(-9, 'h');
 //console.log(setTempDept)
@@ -69,14 +64,18 @@ const scheduleNotificationAsync = async (setTempDept) => {
     content: {
       body: 'Ferry Departs after ' + counter + ' min.',
       title: 'Ready to '  + Port +'!!',
-      sound: true,
-      vibrate: true,
+      sound:'defaultCritical',
+      vibrate:false,
     },
     trigger: {
       seconds: setDeptTime,
     }
   })
+  console.log(setDeptTime)
+  
 }
+
+
 
 {/*ここからリターン文（ほとんど表示系）*/}
   return (

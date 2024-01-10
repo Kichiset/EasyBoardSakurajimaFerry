@@ -4,7 +4,9 @@ import axios from 'axios';
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
- },
+    paddingTop: Platform.OS === 'android' ? 0 : 0, // Androidの場合、セーフエリアに対応するために25ポイント追加
+    backgroundColor: '#444654',
+  },
   container: {
     flexGrow: 1,
     justifyContent: 'center',

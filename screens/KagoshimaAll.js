@@ -12,6 +12,9 @@ const API_URL = 'https://holidays-jp.github.io/api/v1/date.json';
 const main_url = 'https://www.amazon.com/dp/B0CKT84HFY';
 const sub_url = 'https://onjunpenguin.com/';
 
+//あああああああ
+//export let Port = "Kagoshima";
+// バナー広告用のリンク
 const bannerUrls = [
   sub_url,
   'https://sakurajimatsubaki.com/',
@@ -171,6 +174,9 @@ const  getNoticeTime =  async () => {}
   };
   
 
+Port = "Back to Sakurajima"
+console.log(Port)
+
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   // バナー広告の切り替え関数
@@ -218,6 +224,7 @@ const  getNoticeTime =  async () => {}
         style={[styles.button, styles.mainButton]}
         onPress={() => {
           //NextDept = nextDepartureKagoshima[0]
+          Port = "Back to Sakurajima"
           props.navigation.navigate('Notification'); // 遷移先の画面名を指定
         }}>
           <Text style={styles.nextDeparture}>1st  {nextDepartureKagoshima[0]}</Text>
@@ -236,6 +243,8 @@ const  getNoticeTime =  async () => {}
           <TouchableOpacity
         style={[styles.button, styles.mainButton]}
         onPress={() => {
+          //NextDept = nextDepartureKagoshima[0]
+          Port = "Back to Sakurajima"
           props.navigation.navigate('KagoshimaAll'); // 遷移先の画面名を指定
         }}>
           <Text style={styles.nextDeparture}>Show All Schedule</Text>
