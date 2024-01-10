@@ -1,18 +1,32 @@
 import { StyleSheet } from 'react-native';
 import axios from 'axios';
+import {Platform} from 'react-native';
+
+const isAndroid = Platform.OS === 'android';
 
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? 0 : 0, // Androidの場合、セーフエリアに対応するために25ポイント追加
-    backgroundColor: '#444654',
+    backgroundColor: '#1D1D1D',
   },
   container: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1D1D1D'
-    ,
+    backgroundColor: '#1D1D1D',
+  },
+  pickerContainer: {
+    backgroundColor: '#D5D7D2', //薄灰
+    borderWidth: 1,
+    padding: 0,
+    justifyContent: 'center',
+    height: 120,
+    marginTop:10,
+    marginBottom:10,
+    marginLeft:40,
+    marginRight:40,
+    borderRadius:20,
   },
   title: {
     fontSize: 24,
@@ -53,7 +67,7 @@ export const styles = StyleSheet.create({
   },
   kagoFrame:{
     marginTop: 10,
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     borderColor: '#5F3770',
     padding: 20,
@@ -64,7 +78,7 @@ export const styles = StyleSheet.create({
   },
   sakuraFrame:{
     marginTop: 10,
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     padding: 20,
     borderRadius: 5,
@@ -83,11 +97,24 @@ export const styles = StyleSheet.create({
     marginBottom: 0,
     borderWidth: 1,
     textColor: '#1D1D1D',
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     margin: 'auto',
     width: 350,
-    height: 30,
-    borderRadius: 255,
+    height: 60,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headLineDescription:{
+    marginTop: 30,
+    marginBottom: 0,
+    borderWidth: 1,
+    textColor: '#1D1D1D',
+    backgroundColor: '#D5D7D2', //薄灰
+    margin: 'auto',
+    width: 350,
+    height: 35,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -96,7 +123,7 @@ export const styles = StyleSheet.create({
     marginBottom: 0,
     borderWidth: 1,
     textColor: '#1D1D1D',
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     margin: 'auto',
     width: 200,
     height: 30,
@@ -118,32 +145,40 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#D5D7D2', //薄灰
   },
   button: {
-    backgroundColor: '#EBEBEB', //白藍
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     padding: 10,
     borderRadius: 8,
   },
   mainButton: {
-    backgroundColor: '#EBEBEB', //白藍
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     marginTop: 20,
     alignItems: 'center',
     margin: 'auto',
     width: 200,
   },
+  bottomButton: {
+    backgroundColor: '#D5D7D2', //薄灰
+    borderWidth: 1,
+    marginTop: 20,
+    marginBottom: 100,
+    alignItems: 'center',
+    margin: 'auto',
+    width: 200,
+  },
   buttonContainer: {
     flexDirection: 'row', // ボタンを横並びに配置
-    backgroundColor: '#EBEBEB', //白藍
-    
+    backgroundColor: '#D5D7D2', //薄灰
     marginTop: 20,
     alignItems: 'center',
     margin: 'auto',
   },
   sakuraButton: {
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     textColor:'white',
     marginTop: 25,
@@ -152,7 +187,7 @@ export const styles = StyleSheet.create({
     width: 200,
   },
   kagoButton: {
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     marginTop: 25,
     alignItems: 'center',
@@ -166,7 +201,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkButtonText: {
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#D5D7D2', //薄灰
     padding: 20,
     borderRadius: 5,
     fontSize: 16,
@@ -186,15 +221,15 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
   },
   seletTopButton: {
-    backgroundColor: '#EBEBEB', //白藍
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
-    marginTop: 0,
+    marginTop: -10,
     alignItems: 'center',
     margin: 'auto',
     width: 200,
   },
     seletButton: {
-    backgroundColor: '#EBEBEB', //白藍
+    backgroundColor: '#D5D7D2', //薄灰
     borderWidth: 1,
     marginTop: 5,
     alignItems: 'center',

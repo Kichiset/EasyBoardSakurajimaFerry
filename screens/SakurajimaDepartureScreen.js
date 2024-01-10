@@ -216,7 +216,7 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
       </TouchableOpacity>
       
       
-      <View style={styles.headLineNews}>
+      <View style={styles.headLineDescription}>
         <Text>▲ Tap the Dept. time, you can set alart. ▲</Text>
       
       </View>
