@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "795328756387",
+    "project_id": "easyboardsakurajima",
+    "storage_bucket": "easyboardsakurajima.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795328756387:android:affea3110477943cbe5d16",
+        "android_client_info": {
+          "package_name": "com.kichiset.EasyBoardSakurajimaFerry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGWlKsK9m9zeu1EvxT2P7vpOgiO2nL5HI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-3179323992080572~4136558695"
+    }
+  ],
+  "configuration_version": "1"
+}
