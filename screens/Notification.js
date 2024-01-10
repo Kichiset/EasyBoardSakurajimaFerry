@@ -1,6 +1,19 @@
 import React, { useEffect, useState, Component } from 'react';
 import {
-  View, Text, TouchableOpacity, Image, StyleSheet, SafeAreaView, ScrollView, Linking, Animated, StatusBar, Button, Vibration, BackHandler,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  Linking,
+  Animated,
+  StatusBar,
+  Button,
+  Vibration,
+  BackHandler,
+  Platform,
 } from 'react-native';
 import Constants from 'expo-constants';
 import * as Device from 'expo-device';

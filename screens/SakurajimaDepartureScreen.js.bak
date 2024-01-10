@@ -190,21 +190,97 @@ Port = "Back to Kagoshima"
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.currentTime}>Current: {currentTime}</Text>
       
-
-      
-      
-      
-      
-      
-      <View style={styles.sakuraFrame}>
-        <Text style={[styles.portTitle, styles.bottomColumn]}>Back to Kagoshima</Text>
-        <Text style={styles.nextDeparture}>1st  {nextDepartureSakurajima[0]}</Text>
-        <Text style={styles.nextDeparture}>2st  {nextDepartureSakurajima[1]}</Text>
-        <Text style={[styles.portTitle, styles.centerColumn]}>Following</Text>
-        <Text style={styles.nextDeparture}>3rd  {nextDepartureSakurajima[2]}</Text>
-        <Text style={styles.nextDeparture}>4th  {nextDepartureSakurajima[3]}</Text>
-        <Text style={styles.nextDeparture}>5th  {nextDepartureSakurajima[4]}</Text>
-        <Text style={styles.nextDeparture}>6th  {nextDepartureSakurajima[5]}</Text>
+      <View style={styles.kagoFrame}>
+        
+        <Text style={[styles.portTitle, styles.bottomColumn]}>Go to Sakurajima</Text>
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletTopButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[0]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>1st  {nextDepartureSakurajima[0]}</Text>
+        </TouchableOpacity>
+        
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[1]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>2nd  {nextDepartureSakurajima[1]}</Text>
+        </TouchableOpacity>
+        
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[2]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>3rd  {nextDepartureSakurajima[2]}</Text>
+        </TouchableOpacity>
+        
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[3]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>4th  {nextDepartureSakurajima[3]}</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[4]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>5th  {nextDepartureSakurajima[4]}</Text>
+        </TouchableOpacity>
+        
+        
+        <TouchableOpacity
+        style={[styles.button, styles.seletButton]}
+        onPress={() => {
+          NextDept = nextDepartureSakurajima[5]
+          //navigation.navigate('Notification',NextDept)
+          props.navigation.navigate('Notification',NextDept,Port); // 遷移先の画面名を指定
+          console.log(Port, NextDept);
+          }}>
+          <Text style={styles.nextDeparture}>6th  {nextDepartureSakurajima[5]}</Text>
+        </TouchableOpacity>
+          
+          
+          
+          
+          
+          {/* 鹿児島港から全画面に遷移するボタン（）カレンダーつけにゃならん */}
+          {/*
+          <TouchableOpacity
+            style={[styles.button, styles.sakuraButton]}
+            onPress={() => {
+            NextDept = nextDepartureSakurajima[0]
+            Port = "Back to Sakurajima"
+            props.navigation.navigate('SakurajimaAll'); // 遷移先の画面名を指定
+          }}>
+            <Text>Show All Schedule</Text>
+          </TouchableOpacity>
+          */}
+        
       </View>
       
       {/* 桜島港から桜島港画面に遷移するボタン */}
