@@ -379,13 +379,21 @@ const [isBackground, setAppState] = useState(false);
       {/*}<Text>{headline[currentTextIndex]}</Text>*/}
       
       </View>
-      
+            
+        <TouchableOpacity onPress={() => openLink(bannerUrls[currentBannerIndex])} style={styles.linkButtonTop}>
+          <Image
+            source={bannerImages[currentBannerIndex]} // 画像ファイルのパスを指定
+            style={styles.linkButtonImage}
+          />
+        </TouchableOpacity>
+        {/*
         <TouchableOpacity onPress={() => openLink(main_url)} style={styles.linkButton}>
           <Image
             source={require('..//assets/桜島の不思議.png')} // 画像ファイルのパスを指定
             style={styles.linkButtonImage}
           />
         </TouchableOpacity>
+      */}
 		<Text style={styles.bannerDescription}>▲Reccomendation Items for this Application.▲</Text>
 		<Text style={styles.bannerDescription}>▲Please support for SDGs in Sakurajima.▲</Text>
       
@@ -396,15 +404,8 @@ const [isBackground, setAppState] = useState(false);
         <Text>Share this Application.</Text>
       </View>
       </TouchableOpacity>
-            
-        <TouchableOpacity onPress={() => openLink(bannerUrls[currentBannerIndex])} style={styles.linkButtonTop}>
-          <Image
-            source={bannerImages[currentBannerIndex]} // 画像ファイルのパスを指定
-            style={styles.linkButtonImage}
-          />
-        </TouchableOpacity>
-        
-        
+
+       <AdmobFullBanner />
 
     </ScrollView>
   </SafeAreaView>

@@ -233,17 +233,14 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
         <Text style={styles.buttonText}>Main Page</Text>
       </TouchableOpacity>
 
-
+        {/*
         <TouchableOpacity onPress={() => openLink(main_url)} style={styles.linkButton}>
           <Image
             source={require('..//assets/桜島の不思議.png')} // 画像ファイルのパスを指定
             style={styles.linkButtonImage}
           />
         </TouchableOpacity>
-		<Text style={styles.bannerDescription}>▲Reccomendation Items for this Application.▲</Text>
-		<Text style={styles.bannerDescription}>▲Please support for SDGs in Sakurajima.▲</Text>
-
-
+        */}
         <TouchableOpacity onPress={() => openLink(bannerUrls[currentBannerIndex])} style={styles.linkButtonTop}>
           <Image
             source={bannerImages[currentBannerIndex]} // 画像ファイルのパスを指定
@@ -251,6 +248,11 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
           />
         </TouchableOpacity>
         
+		<Text style={styles.bannerDescription}>▲Reccomendation Items for this Application.▲</Text>
+		<Text style={styles.bannerDescription}>▲Please support for SDGs in Sakurajima.▲</Text>
+
+    <AdmobFullBanner />
+
     </ScrollView>
   </SafeAreaView>
   );
