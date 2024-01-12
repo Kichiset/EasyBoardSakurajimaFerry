@@ -25,7 +25,17 @@ import { styles } from './styles'; // 新しく作成したstyles.jsファイル
 import axios from 'axios';
 import moment from 'moment';
 
-const isAndroid = Platform.OS === 'android';
+import { InterstitialAd, AdEventType, TestIds } from 'react-native-google-mobile-ads';
+const isAndroid = Platform.OS == 'android';
+
+const adUnitId = isAndroid
+? 'ca-app-pub-3179323992080572/1874502649'
+: 'ca-app-pub-3179323992080572/9269381128';
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ['健康', '食品', 'ファッション', 'ビール'],
+});
+
 
 const App = (props) => { // propsを引数として受け取る  // 状態変数の定義
   // 状態変数の定義
@@ -100,7 +110,41 @@ const getMessage = () => {
 
 
 
+// Firebase広告の表示系統
+const [loaded, setLoaded] = useState(false);
+useEffect(() => {
+  const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+    setLoaded(true);
+  });
+  // Start loading the interstitial straight away
+  interstitial.load();    
+  // Unsubscribe from events on unmount
+  return unsubscribe;
+}, []);
+const [closed, setClosed] = useState(false);
+useEffect(() => {
+  const unsubscribe = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+    setClosed(true);
+  });
+  // Start loading the interstitial straight away
+  interstitial.load();    
+  // Unsubscribe from events on unmount
+  return unsubscribe;
+}, []);
+const [err, setERR] = useState(false);
+useEffect(() => {
+  const unsubscribe = interstitial.addAdEventListener(AdEventType.ERROR, () => {
+    setERR(true);
+  });
+  // Start loading the interstitial straight away
+  interstitial.load();    
+  // Unsubscribe from events on unmount
+  return unsubscribe;
+}, []);
 
+
+
+console.log(loaded,closed,err)
 
 
 
@@ -176,11 +220,9 @@ const scheduleNotificationAsync = async (setTempDept) => {
             setDeptTime = getDeptTime();
             setMessage(getMessage(message,counter));
             // No advert ready to show yet
-            {/*
             if(loaded && !closed){
               interstitial.show();
             }
-            */}
             Notifications.cancelAllScheduledNotificationsAsync();
             scheduleNotificationAsync(setDeptTime)
             // 

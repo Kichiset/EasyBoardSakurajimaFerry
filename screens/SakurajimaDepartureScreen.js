@@ -38,7 +38,7 @@ const bannerImages = [
 ];
 
 // Admobバナー
-//import { AdmobFullBanner } from "../Admob";
+import { AdmobFullBanner } from "../Admob";
 
 //一行広告のメッセージ（外部リンクをするのは品がないのでやめましょう）
 //最大で12文字/sec
@@ -110,6 +110,7 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
   
   return (
   <SafeAreaView style={styles.safeArea}>
+    <AdmobFullBanner/>
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.currentTime}>Current: {currentTime}</Text>
       

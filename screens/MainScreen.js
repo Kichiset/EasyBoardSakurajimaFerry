@@ -21,6 +21,18 @@ import { styles } from './styles'; // 新しく作成したstyles.jsファイル
 import axios from 'axios';
 import moment from 'moment';
 
+import {AppOpenAd, AdEventType, TestIds} from 'react-native-google-mobile-ads';
+
+const isAndroid = Platform.OS == 'android';
+
+const adUnitId = isAndroid
+ ? 'ca-app-pub-3179323992080572/5849010867'
+ : 'ca-app-pub-3179323992080572/8819867139';
+
+ const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
+  keywords: ['健康', '食品', 'ファッション', 'ビール'],
+});
+
 const API_URL = 'https://holidays-jp.github.io/api/v1/date.json';
 const Headline_URL = 'https://raw.githubusercontent.com/Kichiset/EasyBoardSakurajimaFerry/main/HeadlineMessage.json';
 const main_url = 'https://www.amazon.com/dp/B0CKT84HFY';
@@ -40,7 +52,7 @@ const bannerImages = [
 ];
 
 // Admobバナー
-//import { AdmobFullBanner } from "../Admob";
+import { AdmobFullBanner } from "../Admob";
 
 const peakSeason_prePost = ["2023-12-29", "2023-12-30", "2023-12-31", "2024-01-03"];
 const peakSeason = ["2024-01-01","2024-01-02"];
@@ -254,8 +266,6 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
   }, []);
 
 
-
-{/*
   // Preload an app open ad
   appOpenAd.load();
 
@@ -291,8 +301,6 @@ const [isBackground, setAppState] = useState(false);
 
   console.log(appOpenAd.loaded, isBackground, closed, flag)
 
-  const iosURL = 'https://apps.apple.com/us/app/easy-board-sakurajima-ferry/id6468773953';
-  const AndroidURL = 'https://play.google.com/store/apps/details?id=com.kichiset.EasyBoardSakurajimaFerry&pcampaignid=web_share'
 
 
 
@@ -301,7 +309,6 @@ const [isBackground, setAppState] = useState(false);
     appOpenAd.show();
     appOpenAd.load();
   }
-*/}
 
   async function onShare() {
     try {
@@ -329,6 +336,7 @@ const [isBackground, setAppState] = useState(false);
 
   return (
   <SafeAreaView style={styles.safeArea}>
+    <AdmobFullBanner />
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.currentTime}>Current: {currentTime}</Text>
       
@@ -350,6 +358,7 @@ const [isBackground, setAppState] = useState(false);
 
       {/* メイン画面から桜島港発画面に遷移するフレーム */}
       <TouchableOpacity
+      
         onPress={() => {
           Dept = nextDepartureSakurajima
           setPort = SakuPort

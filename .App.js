@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, View, Button,Vibration, } from 'react-native';
+import { StyleSheet,} from 'react-native';
 import * as Notifications from 'expo-notifications';
 
 import MainScreen from './screens/MainScreen';
@@ -11,23 +11,45 @@ import Notification from './screens/Notification';
 
 const Stack = createNativeStackNavigator();
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-    
-  }),
-});
 
 export default function App() {
-  React.useEffect(() => {
+  useEffect(() => {
     requestPermissionsAsync();
   })
 
+  // トラッキング可否を保持する。これをContextなどに持たせて他の画面でも利用する
+  // ※ trueでトラッキングしない。falseでトラッキングする
+  const [nonPersonalizedOnly, setNonPersonalizedOnly] = useState(true);
+
+  useEffect(() => {
+    // ATTとGDPRの同意状態を取得
+    AdsConsent.requestInfoUpdate({
+      debugGeography: AdsConsentDebugGeography.EEA, // EU圏としてテストする設定
+      testDeviceIdentifiers: ["TEST-DEVICE-HASHED-ID"],
+    }).then(async (consentInfo) => {
+      let status = consentInfo.status;
+      if (
+        consentInfo.isConsentFormAvailable &&
+        status === AdsConsentStatus.REQUIRED
+      ) {
+        // 同意状態が必要な場合はダイアログを表示する
+        const result = await AdsConsent.showForm();
+        status = result.status;
+      }
+
+      if (
+        consentInfo.status === AdsConsentStatus.OBTAINED ||
+        status === AdsConsentStatus.OBTAINED
+      ) {
+        // 同意が取得できた場合はNonPersonalizedOnlyをfalseにする(トラッキング取得する)
+        setNonPersonalizedOnly(false);
+      }
+    });
+  }, []);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="KagoshimaDepartureScreen">
+      <Stack.Navigator initialRouteName="MainScreen">
         <Stack.Screen name="Main Page" component={MainScreen} />
         <Stack.Screen name="Go to Sakurajima(From Kagoshima)" component={KagoshimaDepartureScreen} />
         <Stack.Screen name="Back to Kagoshima(From Sakurajima)" component={SakurajimaDepartureScreen} />
@@ -37,6 +59,7 @@ export default function App() {
   );
 }
 
+//通知の許可をリクエスト
 const scheduleNotificationAsync = async () => {
   await Notifications.scheduleNotificationAsync({
     content: {
@@ -54,7 +77,6 @@ const requestPermissionsAsync = async () => {
 
   await Notifications.requestPermissionsAsync();
 }
-Notifications.setBadgeCountAsync(0);
 
 const styles = StyleSheet.create({
   container: {

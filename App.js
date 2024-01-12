@@ -11,41 +11,13 @@ import SakurajimaDepartureScreen from './screens/SakurajimaDepartureScreen';
 import SakurajimaAll from './screens/SakurajimaAll';
 import Notification from './screens/Notification';
 
-//import { AdsConsent , AdsConsentDebugGeography, AdsConsentStatus} from 'react-native-google-mobile-ads';
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   useEffect(() => {
     requestPermissionsAsync();
   })
-{/*
-  const [nonPersonalizedOnly, setNonPersonalizedOnly] = useState(true);
 
-  useEffect(() => {
-
-    AdsConsent.requestInfoUpdate({
-      debugGeography: AdsConsentDebugGeography.EEA,
-      testDeviceIdentifiers: ["TEST-DEVICE-HASHED-ID"],
-    }).then(async (consentInfo) => {
-      let status = consentInfo.status;
-      if (
-        consentInfo.isConsentFormAvailable &&
-        status === AdsConsentStatus.REQUIRED
-      ) {
-        const result = await AdsConsent.showForm();
-        status = result.status;
-      }
-
-      if (
-        consentInfo.status === AdsConsentStatus.OBTAINED ||
-        status === AdsConsentStatus.OBTAINED
-      ) {
-        setNonPersonalizedOnly(false);
-      }
-    });
-  }, []);
-  */}
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="MainScreen">

@@ -2,12 +2,11 @@
   "expo": {
     "name": "EasyBoardSakurajimaFerry",
     "slug": "EasyBoardSakurajimaFerry",
-    "version": "1.1.5",
+    "version": "1.1.4",
     "orientation": "portrait",
     "icon": "./assets/f_bl.png",
     "userInterfaceStyle": "light",
     "splash": {
-      //"image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -26,7 +25,8 @@
         "foregroundImage": "./assets/f_bl_d.png",
         "backgroundColor": "#D4ECEE"
       },
-      "package": "com.kichiset.EasyBoardSakurajimaFerry"
+      "package": "com.kichiset.EasyBoardSakurajimaFerry",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,6 +41,6 @@
     "android_app_id": "ca-app-pub-3179323992080572~4136558695",
     "ios_app_id": "ca-app-pub-3179323992080572~2823477021",
     "delay_app_measurement_init": true,
-    "user_tracking_usage_description": ""
+    "user_tracking_usage_description": "This identifier will be used to deliver personalized ads to you."
   }
 }
