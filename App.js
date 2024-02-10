@@ -11,10 +11,10 @@ import Notification from './screens/Notification';
 
 import { AdsConsent , AdsConsentDebugGeography, AdsConsentStatus} from 'react-native-google-mobile-ads';
 
-const Stack = createNativeStackNavigator();
-
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   useEffect(() => {
     requestPermissionsAsync();
   })

@@ -21,7 +21,7 @@ import { styles } from './styles'; // 新しく作成したstyles.jsファイル
 import axios from 'axios';
 import moment from 'moment';
 
-import {AppOpenAd, AdEventType, TestIds} from 'react-native-google-mobile-ads';
+import { AppOpenAd, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 
 const isAndroid = Platform.OS == 'android';
 
@@ -29,7 +29,7 @@ const adUnitId = isAndroid
  ? 'ca-app-pub-3179323992080572/5849010867'
  : 'ca-app-pub-3179323992080572/8819867139';
 
- const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
+const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
   keywords: ['健康', '食品', 'ファッション', 'ビール'],
 });
 
@@ -64,7 +64,7 @@ const isWeekEnd = moment().format('d') % 6 == 0 ? true : false;
 import ferryTimetable from '../timeTable.json';
 
 // 出発時刻の探索関数 (先発と次発を探す)
-const getNextDeparture = (schedule, currentTime) => {
+  const getNextDeparture = (schedule, currentTime) => {
   const currentMoment = moment(currentTime, 'HH:mm');
   
   return schedule; // 最終便が終わった場合は翌日の最初の便を表示
@@ -265,7 +265,7 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
     return () => clearInterval(textTimer); // クリーンアップ
   }, []);
 
-
+ if(!isAndroid){ 
   // Preload an app open ad
   appOpenAd.load();
 
@@ -294,22 +294,13 @@ const [isBackground, setAppState] = useState(false);
     };
   }, []);
 
-
-  
-
-
-
-  console.log(appOpenAd.loaded, isBackground, closed, flag)
-
-
-
-
   // ここに復帰判定
   if(appOpenAd.loaded && flag){
     appOpenAd.show();
     appOpenAd.load();
   }
-
+ }
+ 
   async function onShare() {
     try {
       const result = await Share.share({
@@ -329,12 +320,12 @@ const [isBackground, setAppState] = useState(false);
     } catch (error) {
       Alert.alert(error.message);
     }
-  };
+  }
 
-
-<StatusBar style="auto" />
+<StatusBar style="default"/>
 
   return (
+    
   <SafeAreaView style={styles.safeArea}>
     <AdmobFullBanner />
     <ScrollView contentContainerStyle={styles.container}>
@@ -342,6 +333,7 @@ const [isBackground, setAppState] = useState(false);
       
       {/* メイン画面から鹿児島港発画面に遷移するフレーム */}
       <TouchableOpacity
+        
         onPress={() => {
           Dept = nextDepartureKagoshima
           setPort = KagoPort
@@ -363,7 +355,7 @@ const [isBackground, setAppState] = useState(false);
           Dept = nextDepartureSakurajima
           setPort = SakuPort
           Port = GetPort(setPort)
-          props.navigation.navigate('Back to Kagoshima(From Sakurajima)',nextDepartureSakurajima,Port); // 遷移先の画面名を指定
+          props.navigation.navigate('Back to Kagoshima(From Sakurajima)',Dept,Port); // 遷移先の画面名を指定
         }
         }
       >
@@ -404,9 +396,6 @@ const [isBackground, setAppState] = useState(false);
         <Text>Share this Application.</Text>
       </View>
       </TouchableOpacity>
-
-       <AdmobFullBanner />
-
     </ScrollView>
   </SafeAreaView>
   );

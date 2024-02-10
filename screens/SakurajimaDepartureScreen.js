@@ -107,7 +107,6 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
   }, []);
   
   <StatusBar style="auto" />
-  
   return (
   <SafeAreaView style={styles.safeArea}>
     <AdmobFullBanner/>
@@ -116,7 +115,7 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
       
       <View style={styles.kagoFrame}>
         
-        <Text style={[styles.portTitle, styles.bottomColumn]}>Go to Sakurajima</Text>
+        <Text style={[styles.portTitle, styles.bottomColumn]}>{Port}</Text>
         
         <TouchableOpacity
         style={[styles.button, styles.seletTopButton]}
@@ -206,15 +205,16 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
         
       </View>
       
-      {/* 桜島港から桜島港画面に遷移するボタン */}
+      {/* 桜島港から桜島港画面に遷移するボタン
       <TouchableOpacity
         style={[styles.button, styles.kagoButton]}
         onPress={() => {
           props.navigation.navigate('Go to Sakurajima(From Kagoshima)'); // 遷移先の画面名を指定
         }}
       >
-        <Text style={styles.buttonText}>Show the Screen{"\n"}Go to "Sakurajima"</Text>
+        <Text style={styles.buttonText}>Show the Screen{"\n"}{Port}</Text>
       </TouchableOpacity>
+       */}
       
       
       <View style={styles.headLineDescription}>

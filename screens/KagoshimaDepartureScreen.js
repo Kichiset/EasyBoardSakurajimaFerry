@@ -115,7 +115,7 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
       
       <View style={styles.kagoFrame}>
         
-        <Text style={[styles.portTitle, styles.bottomColumn]}>Go to Sakurajima</Text>
+        <Text style={[styles.portTitle, styles.bottomColumn]}>{Port}</Text>
         
         <TouchableOpacity
         style={[styles.button, styles.seletTopButton]}
