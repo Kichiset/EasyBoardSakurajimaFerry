@@ -16,9 +16,12 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.kichiset.EasyBoardSakurajimaFerry",
-      "googleServicesFile": "./GoogleService-Info.plist"
-   },
-   "android": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "android": {
       "versionCode": 14,
       "adaptiveIcon": {
         "backgroundImage": "./assets/splash.png",
@@ -26,7 +29,8 @@
         "backgroundColor": "#D4ECEE"
       },
       "package": "com.kichiset.EasyBoardSakurajimaFerry",
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +39,9 @@
       "eas": {
         "projectId": "5dba1a56-7389-48b5-bddd-57271bc63cc9"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/5dba1a56-7389-48b5-bddd-57271bc63cc9"
     }
   },
   "react-native-google-mobile-ads": {
@@ -55,6 +62,5 @@
         }
       }
     ]
-    
   ]
 }
