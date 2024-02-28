@@ -293,14 +293,14 @@ const [isBackground, setAppState] = useState(false);
       AppState.removeEventListener("change", onChange), setFlag;
     };
   }, []);
-
+{/*
   // ここに復帰判定
   if(appOpenAd.loaded && flag){
     appOpenAd.show();
     appOpenAd.load();
   }
  }
- 
+*/}
   async function onShare() {
     try {
       const result = await Share.share({
@@ -329,7 +329,7 @@ const [isBackground, setAppState] = useState(false);
   <SafeAreaView style={styles.safeArea}>
     <AdmobFullBanner />
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.currentTime}>Current: aaa{currentTime}</Text>
+      <Text style={styles.currentTime}>Current: {currentTime}</Text>
       
       {/* メイン画面から鹿児島港発画面に遷移するフレーム */}
       <TouchableOpacity
