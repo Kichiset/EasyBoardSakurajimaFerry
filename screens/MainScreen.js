@@ -265,7 +265,8 @@ const App = (props) => { // propsを引数として受け取る  // 状態変数
     return () => clearInterval(textTimer); // クリーンアップ
   }, []);
 
- if(!isAndroid){ 
+
+if(!isAndroid){
   // Preload an app open ad
   appOpenAd.load();
 
@@ -293,14 +294,13 @@ const [isBackground, setAppState] = useState(false);
       AppState.removeEventListener("change", onChange), setFlag;
     };
   }, []);
-{/*
+  console.log(appOpenAd.loaded, isBackground, closed, flag)
   // ここに復帰判定
-  if(appOpenAd.loaded && flag){
-    appOpenAd.show();
-    appOpenAd.load();
-  }
- }
-*/}
+  //if(appOpenAd.loaded && flag){
+  //  appOpenAd.show();
+  //  appOpenAd.load();
+  //}
+}
   async function onShare() {
     try {
       const result = await Share.share({
@@ -322,11 +322,9 @@ const [isBackground, setAppState] = useState(false);
     }
   }
 
-<StatusBar style="default"/>
-
-  return (
-    
+return (
   <SafeAreaView style={styles.safeArea}>
+    <StatusBar style="default"/>
     <AdmobFullBanner />
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.currentTime}>Current: {currentTime}</Text>
@@ -371,7 +369,7 @@ const [isBackground, setAppState] = useState(false);
       {/*}<Text>{headline[currentTextIndex]}</Text>*/}
       
       </View>
-            
+      
         <TouchableOpacity onPress={() => openLink(bannerUrls[currentBannerIndex])} style={styles.linkButtonTop}>
           <Image
             source={bannerImages[currentBannerIndex]} // 画像ファイルのパスを指定
@@ -402,4 +400,3 @@ const [isBackground, setAppState] = useState(false);
 };
 
 export default App;
-
