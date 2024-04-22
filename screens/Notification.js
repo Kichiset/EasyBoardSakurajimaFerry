@@ -117,7 +117,7 @@ useEffect(() => {
     setLoaded(true);
   });
   // Start loading the interstitial straight away
-  interstitial.load();    
+  interstitial.load();
   // Unsubscribe from events on unmount
   return unsubscribe;
 }, []);
